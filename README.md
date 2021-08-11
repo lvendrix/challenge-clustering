@@ -28,7 +28,7 @@ We'll implement different clustering algorithms to identify possible clusters. T
 | Filename                             | Usage                                                     |
 |--------------------------------------|-----------------------------------------------------------|
 | bearing_clustering.ipynb | Jupyer Notebook file containing Python code.<br>Used to clean the data.<br>Used to draw plots and do preliminary analysis. <br>Used to find clusters using different clustering algorithms.|
-| bearing_signals.csv | csv file containing information about bearings|
+| data_bearings_classification.csv | csv file containing information about bearings|
 | Visuals | Folder containing visuals.|
 
 # First steps
@@ -41,6 +41,10 @@ We'll implement different clustering algorithms to identify possible clusters. T
 Before creating any function to iterate over all the possible combinations of features and see which ones lead to the best silhouette-score, we first plotted all the features in a scatter-matrix to have a first look at their relation and discover possible clusters.
 
 ![](/Visuals/Visual_Scatter_Matrix.png)
+
+Based on this scatter-matrix, we started to play around with features that seemed interesting. For example here: 'hz_mean', 'a2_x_mean', 'a2_z_mean' with 3 clusters yield interesting results.
+
+![](/Visuals/Visual_3_features_original_gif.gif)
 
 Now, we create 3 functions to iterate over all possible combinations:
 * combination_features(df, number_features): Takes a dataframe and the desired number of features to be combined. Outputs a list
@@ -58,7 +62,7 @@ Now, we create 3 functions to iterate over all possible combinations:
 
 ![](/Visuals/Visual_evolution_score.png)
 
-As we can see, the best scores are always with a cluster of size 2, and that the silhouette score keeps decreasing as we increase the number of features used to cluster.
+As we can see, the best scores are always with a cluster of size 2, and the silhouette score keeps decreasing as we increase the number of features used to cluster.
 It seems that we have 3 outliers that create their own cluster. Thanks to having values very dissimilar to the rest of the values, it creates a nice separation between clusters. However, they are only 3 in that cluster which is very unbalanced. We could also remove those from the dataset and redo the clustering search with the updated dataset.
 
 # Timeline
