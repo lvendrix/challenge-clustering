@@ -42,7 +42,7 @@ Before creating any function to iterate over all the possible combinations of fe
 
 ![](/Visuals/Visual_Scatter_Matrix.png)
 
-Based on this scatter-matrix, we started to play around with features that seemed interesting. For example here: 'hz_mean', 'a2_x_mean', 'a2_z_mean' with 3 clusters yield interesting results.
+Based on this scatter-matrix, we started to play around with features that seemed interesting. For example here: 'hz_mean', 'a2_x_mean', 'a2_z_mean' with 3 clusters yield interesting results (score of 0.84).
 
 ![](/Visuals/Visual_3_features_original_gif.gif)
 
@@ -53,17 +53,25 @@ Now, we create 3 functions to iterate over all possible combinations:
 
 ![](/Visuals/Visual_3_features_best_gif.gif)
 
-# Results
-* 2 features: 'a1_y_mean', 'a2_y_mean' with 2 clusters, score = 0.956
-* 3 features: 'a1_y_mean', 'a2_y_mean', 'a2_z_mean' with 2 clusters, score = 0.917
-* 4 features: 'a1_x_mean', 'a1_y_mean', 'a2_y_mean', 'a2_z_mean' with 2 clusters, score = 0.882
-* 5 features: 'a1_x_mean', 'a1_y_mean', 'a1_z_mean', 'a2_y_mean', 'a2_z_mean' wtih 2 clusters, score = 0.846
-* 6 features: 'a1_x_mean', 'a1_y_mean', 'a1_z_mean', 'a2_y_mean', 'a2_z_mean', 'w_mean' with 2 clusters = 0.82
+# Results #1
+Best score for n features (KMeans++) using all the dataset
+| # features | Clusters | Score |  
+| ---------- | -------- | ----- |
+| 2          | 2        | 0.956 | 
+| 3          | 2        | 0.917 |
+| 4          | 2        | 0.882 |
+| 5          | 2        | 0.846 |
+| 6          | 2        | 0.82  |
 
 ![](/Visuals/Visual_evolution_score.png)
 
+# Conclusion 
 As we can see, the best scores are always with a cluster of size 2, and the silhouette score keeps decreasing as we increase the number of features used to cluster.
-It seems that we have 3 outliers that create their own cluster. Thanks to having values very dissimilar to the rest of the values, it creates a nice separation between clusters. However, they are only 3 in that cluster which is very unbalanced. We could also remove those from the dataset and redo the clustering search with the updated dataset.
+It seems that we have 3 possible outliers that create their own cluster. By having values very dissimilar to the rest, it creates a nice separation between clusters. However, they are only 3 bearings in that cluster which is very unbalanced. We could also remove those from the dataset and redo the clustering search with the updated dataset.
+
+# Further investigation
+* Try other clustering methods and see if we have a better score
+* Investigate possible 'outliers' affecting the performance of KMeans
 
 # Timeline
-09/09/2021 - 11/08/2021
+09/08/2021 - 11/08/2021
