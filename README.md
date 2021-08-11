@@ -54,7 +54,7 @@ Now, we create 3 functions to iterate over all possible combinations:
 ![](/Visuals/Visual_3_features_best_gif.gif)
 
 # Results
-Best silhouette scors sfor n features (KMeans++) using all the dataset
+Best silhouette scores for n features (KMeans++) using all the dataset
 | # features | Clusters | Score |  
 | ---------- | -------- | ----- |
 | 2          | 2        | 0.956 | 
